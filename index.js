@@ -55,7 +55,7 @@ function animate() {
 }
 animate();
 
-canvas.addEventListener("mousedown", (e) => {
+canvas.addEventListener("pointerdown", (e) => {
   mouse.pressed = true;
   if (mouse.pressed == true) {
     mouse.x = e.x - offset.left;
@@ -63,7 +63,7 @@ canvas.addEventListener("mousedown", (e) => {
   }
 });
 
-canvas.addEventListener("mousemove", (e) => {
+canvas.addEventListener("pointermove", (e) => {
   if (mouse.pressed == true) {
     mouse.x = e.x - offset.left;
     mouse.y = e.y - offset.top;
@@ -72,14 +72,14 @@ canvas.addEventListener("mousemove", (e) => {
   }
 });
 
-canvas.addEventListener("mouseup", (e) => {
+canvas.addEventListener("pointerup", (e) => {
   mouse.pressed = false;
 });
 
-// window.addEventListener("resize", (e) => {
-//   canvas.width = canvas.width;
-//   canvas.height = canvas.height;
-//   offset = canvas.getBoundingClientRect();
-//   mouse.x = e.x - offset.left;
-//   mouse.y = e.y - offset.top;
-// });
+window.addEventListener("resize", (e) => {
+  canvas.width = canvas.width;
+  canvas.height = canvas.height;
+  offset = canvas.getBoundingClientRect();
+  mouse.x = e.x - offset.left;
+  mouse.y = e.y - offset.top;
+});
